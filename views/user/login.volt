@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
 
     <!--[if IE 7]>
-        <link rel="stylesheet" href="/assets/css/font-awesome-ie7.min.css" />
-        <![endif]-->
+    <link rel="stylesheet" href="/assets/css/font-awesome-ie7.min.css" />
+    <![endif]-->
 
     <!-- page specific plugin styles -->
 
@@ -28,17 +28,17 @@
     <link rel="stylesheet" href="/assets/css/ace-rtl.min.css" />
 
     <!--[if lte IE 8]>
-        <link rel="stylesheet" href="/assets/css/ace-ie.min.css" />
-        <![endif]-->
+    <link rel="stylesheet" href="/assets/css/ace-ie.min.css" />
+    <![endif]-->
 
     <!-- inline styles related to this page -->
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 
     <!--[if lt IE 9]>
-        <script src="/assets/js/html5shiv.js"></script>
-        <script src="/assets/js/respond.min.js"></script>
-        <![endif]-->
+    <script src="/assets/js/html5shiv.js"></script>
+    <script src="/assets/js/respond.min.js"></script>
+    <![endif]-->
   </head>
 
   <body class="login-layout">
@@ -272,34 +272,34 @@
     <!-- <![endif]-->
 
     <!--[if IE]>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <![endif]-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <![endif]-->
 
     <!--[if !IE]> -->
 
     <script type="text/javascript">
-      window.jQuery || document.write("<script src='/assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
-      </script>
+     window.jQuery || document.write("<script src='/assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+    </script>
 
-      <!-- <![endif]-->
+    <!-- <![endif]-->
 
-      <!--[if IE]>
-          <script type="text/javascript">
-            window.jQuery || document.write("<script src='/assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
-            </script>
-            <![endif]-->
+    <!--[if IE]>
+    <script type="text/javascript">
+    window.jQuery || document.write("<script src='/assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+    </script>
+    <![endif]-->
 
-      <script type="text/javascript">
-        if("ontouchend" in document) document.write("<script src='/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
-        </script>
+    <script type="text/javascript">
+     if("ontouchend" in document) document.write("<script src='/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+    </script>
 
-        <!-- inline scripts related to this page -->
+    <!-- inline scripts related to this page -->
 
-        <script type="text/javascript">
-          function show_box(id) {
-          jQuery('.widget-box.visible').removeClass('visible');
-          jQuery('#'+id).addClass('visible');
-          }
-        </script>
+    <script type="text/javascript">
+     function show_box(id) {
+       jQuery('.widget-box.visible').removeClass('visible');
+       jQuery('#'+id).addClass('visible');
+     }
+    </script>
   </body>
 </html>

@@ -1,6 +1,6 @@
 <div class="sidebar" id="sidebar">
   <script type="text/javascript">
-    try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+   try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
   </script>
 
   <div class="sidebar-shortcuts" id="sidebar-shortcuts">
@@ -337,6 +337,6 @@
   </div>
 
   <script type="text/javascript">
-    try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+   try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
   </script>
 </div>

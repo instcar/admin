@@ -1,6 +1,6 @@
 <div class="navbar navbar-default" id="navbar">
   <script type="text/javascript">
-    try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+   try{ace.settings.check('navbar' , 'fixed')}catch(e){}
   </script>
 
   <div class="navbar-container" id="navbar-container">
