@@ -1,20 +1,25 @@
 <?php 
 namespace Instcar\Admin\Controllers;
+use Instcar\Admin\Plugins\InstcarService as InstcarService;
 
 class ControllerBase extends \Phalcon\Mvc\Controller
 {
-    protected $config;
-    protected $user;
+    protected $config = null;
+    protected $user = null;
     
     protected function initialize()
     {
-        $this->config = $this->getDI()->get('config');
-
-        if($this->di->has('user')) {
-            $this->user = $this->di->get('user');
+        $service = new InstcarService('/server/user/detail');
+        $ret = $service->call();
+        
+        if($ret['status'] != 200) {
+            $this->response->redirect('admin/login/index');
+            return ;
         } else {
-            $this->user = null;
+            $this->user = $ret['data'];
+            $this->view->setVar('user', $this->user);
         }
+        $this->config = $this->getDI()->get('config');
     }
 
     protected function forward($uri)

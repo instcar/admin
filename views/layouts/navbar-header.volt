@@ -226,10 +226,10 @@
 
 	<li class="light-blue">
 	  <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-	    <img class="nav-user-photo" src="/assets/avatars/user.jpg" alt="Jason's Photo" />
+	    <img class="nav-user-photo" src="{{user["headpic"]}}_i.jpg" alt="Jason's Photo" />
 	    <span class="user-info">
 	      <small>欢迎光临,</small>
-	      Jason
+	      {{user["name"]}}
 	    </span>
 
 	    <i class="icon-caret-down"></i>
@@ -253,7 +253,7 @@
 	    <li class="divider"></li>
 
 	    <li>
-	      <a href="#">
+	      <a href="{{url('admin/login/dologout')}}">
 		<i class="icon-off"></i>
 		退出
 	      </a>

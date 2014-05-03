@@ -21,13 +21,15 @@ class Acl extends Plugin
         $controller = $dispatcher->getControllerName();
         $action = $dispatcher->getActionName();
         $dbUser = null;
-        $userId = $this->session->get('identity');
+        // $userId = $this->session->get('identity');
+        $userId = 0;
         if(!$userId) {
         } else {
-            $dbUser = \Instcar\Server\Models\User::findFirst(intval($userId));
-            if(!empty($dbUser)) {
-                $this->di->set('user', $dbUser);
-            }
+            // $dbUser = \Instcar\Admin\Models\User::findFirst(intval($userId));
+            // if(!empty($dbUser)) {
+            // $this->di->set('user', $dbUser);
+            // }
+            return true;
         }
         return true;
     }

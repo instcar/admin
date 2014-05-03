@@ -69,7 +69,7 @@
 
                       <div class="space-6"></div>
 
-                      <form method="POST" action="{{ url("admin/user/login") }}">
+                      <form method="POST" action="{{ url("admin/login/dologin") }}">
                         <fieldset>
                           <label class="block clearfix">
                             <span class="block input-icon input-icon-right">
