@@ -74,7 +74,7 @@
                           <label class="block clearfix">
                             <span class="block input-icon input-icon-right">
                               <input type="text" class="form-control"
-                        placeholder="Username" name ="username" />
+                        placeholder="Username" name ="username" required />
                               <i class="icon-user"></i>
                             </span>
                           </label>
@@ -83,7 +83,7 @@
                             <span class="block input-icon input-icon-right">
                               <input type="password"
                             class="form-control"
-                            placeholder="Password" name="password" />
+                            placeholder="Password" name="password" required />
                               <i class="icon-lock"></i>
                             </span>
                           </label>
@@ -207,14 +207,14 @@
 
                           <label class="block clearfix">
                             <span class="block input-icon input-icon-right">
-                              <input type="text" class="form-control" placeholder="Username" />
+                              <input type="text" class="form-control" placeholder="Username" required />
                               <i class="icon-user"></i>
                             </span>
                           </label>
 
                           <label class="block clearfix">
                             <span class="block input-icon input-icon-right">
-                              <input type="password" class="form-control" placeholder="Password" />
+                              <input type="password" class="form-control" placeholder="Password" required />
                               <i class="icon-lock"></i>
                             </span>
                           </label>
