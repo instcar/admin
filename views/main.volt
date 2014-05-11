@@ -160,19 +160,6 @@
 
       <!-- page specific plugin scripts -->
 
-      <!--[if lte IE 8]>
-      <script src="/assets/js/excanvas.min.js"></script>
-      <![endif]-->
-
-      <script src="/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
-      <script src="/assets/js/jquery.ui.touch-punch.min.js"></script>
-      <script src="/assets/js/jquery.slimscroll.min.js"></script>
-      <script src="/assets/js/jquery.easy-pie-chart.min.js"></script>
-      <script src="/assets/js/jquery.sparkline.min.js"></script>
-      <script src="/assets/js/flot/jquery.flot.min.js"></script>
-      <script src="/assets/js/flot/jquery.flot.pie.min.js"></script>
-      <script src="/assets/js/flot/jquery.flot.resize.min.js"></script>
-
       <!-- ace scripts -->
 
       <script src="/assets/js/ace-elements.min.js"></script>

@@ -244,7 +244,7 @@
 	    </li>
 
 	    <li>
-	      <a href="#">
+	      <a href="{{url('admin/user/profile')}}">
 		<i class="icon-user"></i>
 		个人资料
 	      </a>
