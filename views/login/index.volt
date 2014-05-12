@@ -156,22 +156,37 @@
 
             <div class="space-6"></div>
             <p>
-                输入您的邮箱，并按邮件内容操作
+                输入您的手机号，并输入手机验证码和新密码
             </p>
 
             <form>
                 <fieldset>
                     <label class="block clearfix">
+                        <div class="input-group">
+                              <input type="text" class="form-control" placeholder="手机号" name="phone" />
+                              <span class="input-group-btn">
+                                <button class="btn btn-default  btn-sm btn-success" type="button">发送短信</button>
+                              </span>
+                        </div><!-- /input-group -->
+
+
+                    </label>
+                    <label class="block clearfix">
                             <span class="block input-icon input-icon-right">
-                              <input type="email" class="form-control" placeholder="Email"/>
-                              <i class="icon-envelope"></i>
+                              <input type="phone" class="form-control" placeholder="验证码" name="code"/>
+                              <i class="icon-code"></i>
                             </span>
                     </label>
-
+                    <label class="block clearfix">
+                            <span class="block input-icon input-icon-right">
+                              <input type="password" class="form-control" placeholder="新密码" name="password"/>
+                              <i class="icon-pause"></i>
+                            </span>
+                    </label>
                     <div class="clearfix">
                         <button type="button" class="width-35 pull-right btn btn-sm btn-danger">
                             <i class="icon-lightbulb"></i>
-                            发送
+                            重置密码
                         </button>
                     </div>
                 </fieldset>
@@ -205,28 +220,28 @@
                 <fieldset>
                     <label class="block clearfix">
                             <span class="block input-icon input-icon-right">
-                              <input type="email" class="form-control" placeholder="Email"/>
-                              <i class="icon-envelope"></i>
+                              <input type="text" class="form-control" placeholder="手机号" required/>
+                              <i class="icon-phone-sign"></i>
                             </span>
                     </label>
 
                     <label class="block clearfix">
                             <span class="block input-icon input-icon-right">
-                              <input type="text" class="form-control" placeholder="Username" required/>
+                              <input type="text" class="form-control" placeholder="用户名" required/>
                               <i class="icon-user"></i>
                             </span>
                     </label>
 
                     <label class="block clearfix">
                             <span class="block input-icon input-icon-right">
-                              <input type="password" class="form-control" placeholder="Password" required/>
+                              <input type="password" class="form-control" placeholder="密码" required/>
                               <i class="icon-lock"></i>
                             </span>
                     </label>
 
                     <label class="block clearfix">
                             <span class="block input-icon input-icon-right">
-                              <input type="password" class="form-control" placeholder="Repeat password"/>
+                              <input type="password" class="form-control" placeholder="请重复密码"/>
                               <i class="icon-retweet"></i>
                             </span>
                     </label>
