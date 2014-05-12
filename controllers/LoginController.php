@@ -33,6 +33,8 @@ class LoginController extends ControllerBase
                 $this->response->redirect('admin/user/dashboard');
                 return;
             }
+            echo json_encode($ret);
+            exit;
         }
     }
 

@@ -10,8 +10,12 @@ class ControllerBase extends \Phalcon\Mvc\Controller
 
     protected function initialize()
     {
-        $service = new InstcarService('/server/user/detail');
+        $service = new InstcarService('/server/user/detail/-1');
         $ret = $service->call();
+        if($ret['status'] == 403) {
+            echo json_encode($ret);
+            exit;
+        }
         if($ret['status'] != 200) {
             $this->response->redirect('admin/login/index');
             $this->response->sendHeaders();
