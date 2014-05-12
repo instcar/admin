@@ -12,9 +12,9 @@ class ControllerBase extends \Phalcon\Mvc\Controller
     {
         $service = new InstcarService('/server/user/detail');
         $ret = $service->call();
-        
         if($ret['status'] != 200) {
             $this->response->redirect('admin/login/index');
+            $this->response->sendHeaders();
             return ;
         } else {
             $this->user = $ret['data'];
