@@ -15,7 +15,10 @@
         <div class="col-xs-12">
 
             <div class="table-header">
-                查询条件：Results for "Latest Registered Domains"
+                查询条件：{% if params["query"] == "" %} 空
+                {% else %}
+                phone or name like '{{ params["query"] }}%'
+                {% endif %}
             </div>
 
             <div class="table-responsive">
@@ -54,12 +57,28 @@
                             <td>
                                 <a href="#">{{ user["name"] }}</a>
                             </td>
-                            <td>$45</td>
-                            <td class="hidden-480">3,330</td>
-                            <td>Feb 12</td>
+                            <td>{{ user["phone"] }}</td>
+                            <td class="hidden-480">
+                                {% if user["sex"] == 0 %}
+                                女
+                                {% elseif user["sex"] == 1 %}
+                                男
+                                {% elseif user["sex"] == 2 %}
+                                保密
+                                {% else  %}
+                                未知
+                                {% endif %}
+                            </td>
+                            <td>{{ user["addtime"] }}</td>
 
                             <td class="hidden-480">
-                                <span class="label label-sm label-warning">Expiring</span>
+                                {% if user["status"] == 0 %}
+                                <span class="label label-sm label-grey">普通</span>
+                                {% elseif user["status"] == 1 %}
+                                <span class="label label-sm label-success">实名</span>
+                                {% else %}
+                                <span class="label label-sm label-danger">拒绝</span>
+                                {% endif %}
                             </td>
 
                             <td>
@@ -151,7 +170,6 @@
                         });
 
             });
-
 
             $('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
             function tooltip_placement(context, source) {

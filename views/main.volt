@@ -80,14 +80,15 @@
                 <ul class="breadcrumb">
                     <li>
                         <i class="icon-home home-icon"></i>
-                        <a href="#">首页</a>
+                        <a href="{{ url('admin/user/dashboard') }}">首页</a>
                     </li>
-
+                    {% if breadcrumb_annotation %}
                     <li>
-                        <a href="#">控制台</a>
+                        <a href="#">{{ breadcrumb_annotation.getNamedParameter('first') }}</a>
                     </li>
 
-                    <li class="active">控制台</li>
+                    <li class="active">{{ breadcrumb_annotation.getNamedParameter('second') }}</li>
+                    {% endif %}
                 </ul>
                 <!-- .breadcrumb -->
 
@@ -106,7 +107,11 @@
             <div class="page-content">
                 <div class="page-header">
                     <h1>
-                        控制台
+                        {% if breadcrumb_annotation %}
+                            {{ breadcrumb_annotation.getNamedParameter('second') }}
+                        {% else %}
+                            首页
+                        {% endif %}
                         <small>
                             <i class="icon-double-angle-right"></i>
                             查看

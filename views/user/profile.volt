@@ -111,7 +111,7 @@
 
                 <a class="btn btn-link" href="#">
                     <i class="icon-globe bigger-125 blue"></i>
-                    www.alexdoe.com
+                    www.guweigang.com
                 </a>
             </div>
 
@@ -143,42 +143,42 @@
 	    <span class="line-height-1 bigger-170 blue"> 1,411 </span>
 
 	    <br/>
-	    <span class="line-height-1 smaller-90"> Views </span>
+	    <span class="line-height-1 smaller-90"> 浏览 </span>
 	  </span>
 
 	  <span class="btn btn-app btn-sm btn-yellow no-hover">
 	    <span class="line-height-1 bigger-170"> 32 </span>
 
 	    <br/>
-	    <span class="line-height-1 smaller-90"> Followers </span>
+	    <span class="line-height-1 smaller-90"> 粉丝 </span>
 	  </span>
 
 	  <span class="btn btn-app btn-sm btn-pink no-hover">
 	    <span class="line-height-1 bigger-170"> 4 </span>
 
 	    <br/>
-	    <span class="line-height-1 smaller-90"> Projects </span>
+	    <span class="line-height-1 smaller-90"> 项目 </span>
 	  </span>
 
 	  <span class="btn btn-app btn-sm btn-grey no-hover">
 	    <span class="line-height-1 bigger-170"> 23 </span>
 
 	    <br/>
-	    <span class="line-height-1 smaller-90"> Reviews </span>
+	    <span class="line-height-1 smaller-90"> 评论 </span>
 	  </span>
 
 	  <span class="btn btn-app btn-sm btn-success no-hover">
 	    <span class="line-height-1 bigger-170"> 7 </span>
 
 	    <br/>
-	    <span class="line-height-1 smaller-90"> Albums </span>
+	    <span class="line-height-1 smaller-90"> 专辑 </span>
 	  </span>
 
 	  <span class="btn btn-app btn-sm btn-primary no-hover">
 	    <span class="line-height-1 bigger-170"> 55 </span>
 
 	    <br/>
-	    <span class="line-height-1 smaller-90"> Contacts </span>
+	    <span class="line-height-1 smaller-90"> 联系人 </span>
 	  </span>
     </div>
 
