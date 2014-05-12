@@ -10,7 +10,6 @@
 <div class="navbar-header pull-left">
     <a href="#" class="navbar-brand">
         <small>
-            <i class="icon-leaf"></i>
             易行后台管理系统
         </small>
     </a><!-- /.brand -->

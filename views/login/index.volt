@@ -49,11 +49,10 @@
 <div class="login-container">
 <div class="center">
     <h1>
-        <i class="icon-leaf green"></i>
-        <span class="red">易行</span>
-        <span class="white">后台管理系统</span>
+        <i class="green"></i>
+        <span class="red">易行</span><span class="white">后台管理系统</span>
     </h1>
-    <h4 class="blue">&copy; 2014 Instcar inc.</h4>
+    <h4 class="blue">&copy; 2013 - {{ date("Y") }} Instcar Inc.</h4>
 </div>
 
 <div class="space-6"></div>
