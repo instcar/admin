@@ -63,7 +63,7 @@
         <div class="widget-main">
             <h4 class="header blue lighter bigger">
                 <i class="icon-coffee green"></i>
-                请输入您的用户名和密码
+                用户登录
             </h4>
 
             <div class="space-6"></div>
@@ -73,8 +73,8 @@
                     <label class="block clearfix">
                             <span class="block input-icon input-icon-right">
                               <input type="text" class="form-control"
-                                     placeholder="Username" name="username" required/>
-                              <i class="icon-user"></i>
+                                     placeholder="手机号" name="phone" required/>
+                              <i class="icon-phone"></i>
                             </span>
                     </label>
 
@@ -82,7 +82,7 @@
                             <span class="block input-icon input-icon-right">
                               <input type="password"
                                      class="form-control"
-                                     placeholder="Password" name="password" required/>
+                                     placeholder="密码" name="password" required/>
                               <i class="icon-lock"></i>
                             </span>
                     </label>
@@ -136,7 +136,7 @@
 
             <div>
                 <a href="#" onclick="show_box('signup-box'); return false;" class="user-signup-link">
-                    新用户注册
+                    用户注册
                     <i class="icon-arrow-right"></i>
                 </a>
             </div>
@@ -173,7 +173,7 @@
                     </label>
                     <label class="block clearfix">
                             <span class="block input-icon input-icon-right">
-                              <input type="phone" class="form-control" placeholder="验证码" name="code"/>
+                              <input type="text" class="form-control" placeholder="验证码" name="authcode"/>
                               <i class="icon-code"></i>
                             </span>
                     </label>

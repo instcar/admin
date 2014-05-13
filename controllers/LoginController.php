@@ -24,7 +24,7 @@ class LoginController extends ControllerBase
     {
         if($this->request->isPost()) {
             $params = array();
-            $params['phone'] = $_POST['username'];
+            $params['phone'] = $_POST['phone'];
             $params['password'] = $_POST['password'];
 
             $service = new InstcarService('/server/user/login', $params);
@@ -55,6 +55,6 @@ class LoginController extends ControllerBase
 
     public function doResetPasswordAction()
     {
-        
+
     }
 }
