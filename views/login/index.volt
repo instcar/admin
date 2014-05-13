@@ -2,7 +2,7 @@
 <html lang="zh_CN">
 <head>
     <meta charset="utf-8"/>
-    <title>易行 后台管理系统</title>
+    <title>易行-后台管理系统</title>
     <meta name="keywords" content="易行后台管理"/>
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -214,40 +214,43 @@
             </h4>
 
             <div class="space-6"></div>
-            <p>填写表单: </p>
-
-            <form>
+            <div class="alert alert-danger">手机号码格式不正确</div>
+            <div class="alert alert-success">短信发送成功</div>
+            <form method="post" target="{{ url('admin/login/doregister') }}">
                 <fieldset>
                     <label class="block clearfix">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="手机号" name="phone" required="required" />
+                              <span class="input-group-btn">
+                                <button class="btn btn-default  btn-sm btn-success" type="button">发送短信</button>
+                              </span>
+                        </div><!-- /input-group -->
+                    </label>
+
+
+                    <label class="block clearfix">
                             <span class="block input-icon input-icon-right">
-                              <input type="text" class="form-control" placeholder="手机号" required/>
-                              <i class="icon-phone-sign"></i>
+                              <input type="text" class="form-control" placeholder="验证码" name="authcode" required/>
+                              <i class="icon-code"></i>
                             </span>
                     </label>
 
                     <label class="block clearfix">
                             <span class="block input-icon input-icon-right">
-                              <input type="text" class="form-control" placeholder="用户名" required/>
-                              <i class="icon-user"></i>
-                            </span>
-                    </label>
-
-                    <label class="block clearfix">
-                            <span class="block input-icon input-icon-right">
-                              <input type="password" class="form-control" placeholder="密码" required/>
+                              <input type="password" class="form-control" placeholder="密码" name="password" required/>
                               <i class="icon-lock"></i>
                             </span>
                     </label>
 
                     <label class="block clearfix">
                             <span class="block input-icon input-icon-right">
-                              <input type="password" class="form-control" placeholder="请重复密码"/>
+                              <input type="password" class="form-control" placeholder="请重复密码" name="password_again"/>
                               <i class="icon-retweet"></i>
                             </span>
                     </label>
 
                     <label class="block">
-                        <input type="checkbox" class="ace"/>
+                        <input type="checkbox" class="ace" required="required"/>
                             <span class="lbl">
                               接受
                               <a href="#">易行后台管理协议</a>
@@ -262,7 +265,7 @@
                             重置表单
                         </button>
 
-                        <button type="button" class="width-65 pull-right btn btn-sm btn-success">
+                        <button type="submit" class="width-65 pull-right btn btn-sm btn-success" id="register">
                             点击注册
                             <i class="icon-arrow-right icon-on-right"></i>
                         </button>

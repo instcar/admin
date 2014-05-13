@@ -47,4 +47,14 @@ class LoginController extends ControllerBase
             return;
         }
     }
+
+    public function doRegisterAction()
+    {
+
+    }
+
+    public function doResetPasswordAction()
+    {
+        
+    }
 }
