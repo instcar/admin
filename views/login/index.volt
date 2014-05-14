@@ -499,7 +499,7 @@
             show_alert_box("login_alert_danger","手机号码格式不正确");
             return false;
         }
-        var password = $("#login_password").val();
+        var password = $("#login-password").val();
         if( password=="" ){
             show_alert_box("login_alert_danger","密码不能为空");
             return false;
