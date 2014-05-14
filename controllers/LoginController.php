@@ -50,11 +50,33 @@ class LoginController extends ControllerBase
 
     public function doRegisterAction()
     {
-
+    	$params = array();
+    	$params['phone'] = $_POST['phone'];
+    	$params['authcode'] = $_POST['authcode'];
+    	$params['password'] = $_POST['password'];
+    	 
+    	$service = new InstcarService('/server/user/register',$params);
+    	$ret= $service->call();
+    	if($ret['status'] == 200) {
+    		$this->response->redirect('admin/login/index');
+    		return;
+    	} 
+    	echo json_encode($ret);
+    	exit;
     }
 
     public function doResetPasswordAction()
     {
 
+    }
+    
+    public function doSendSMSAction(){
+    	$params = array();
+    	$params['phone'] = $_POST['phone'];
+    	$service = new InstcarService('/server/user/getAuthCode',$params);
+    	$ret= $service->call();
+    	
+    	echo json_encode($ret);
+    	exit;
     }
 }

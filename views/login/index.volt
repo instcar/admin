@@ -67,13 +67,15 @@
             </h4>
 
             <div class="space-6"></div>
-
-            <form method="POST" action="{{ url("admin/login/dologin") }}">
+            <div class="alert alert-danger hide" id="login_alert_danger"></div>
+            <div class="alert alert-success hide" id="login_alert_success"></div>
+            
+            <form method="POST" id="login-form" action="{{ url("admin/login/dologin") }}">
                 <fieldset>
                     <label class="block clearfix">
                             <span class="block input-icon input-icon-right">
                               <input type="text" class="form-control"
-                                     placeholder="手机号" name="phone" required/>
+                                     placeholder="手机号" name="phone" id="login-phone" required/>
                               <i class="icon-phone"></i>
                             </span>
                     </label>
@@ -82,7 +84,7 @@
                             <span class="block input-icon input-icon-right">
                               <input type="password"
                                      class="form-control"
-                                     placeholder="密码" name="password" required/>
+                                     placeholder="密码" name="password" id="login-password" required/>
                               <i class="icon-lock"></i>
                             </span>
                     </label>
@@ -91,7 +93,7 @@
 
                     <div class="clearfix">
                         <label class="inline">
-                            <input type="checkbox" class="ace"/>
+                            <input type="checkbox" id="login-remeber" class="ace"/>
                             <span class="lbl"> 记住我 </span>
                         </label>
 
@@ -155,17 +157,21 @@
             </h4>
 
             <div class="space-6"></div>
+            
+            <div class="alert alert-danger hide" id="find_alert_danger"></div>
+            <div class="alert alert-success hide" id="find_alert_success"></div>
+            
             <p>
                 输入您的手机号，并输入手机验证码和新密码
             </p>
 
-            <form>
+            <form method="post" id="reset-form" action="{{ url("admin/login/doResetPassword") }}">
                 <fieldset>
                     <label class="block clearfix">
                         <div class="input-group">
-                              <input type="text" class="form-control" placeholder="手机号" name="phone" />
+                              <input type="text" class="form-control" placeholder="手机号" name="phone" id="find_phone" required="required" />
                               <span class="input-group-btn">
-                                <button class="btn btn-default  btn-sm btn-success" type="button">发送短信</button>
+                                <button class="btn btn-default  btn-sm btn-success" id="find_send_msg"  type="button">发送短信</button>
                               </span>
                         </div><!-- /input-group -->
 
@@ -173,18 +179,18 @@
                     </label>
                     <label class="block clearfix">
                             <span class="block input-icon input-icon-right">
-                              <input type="text" class="form-control" placeholder="验证码" name="authcode"/>
+                              <input type="text" class="form-control" placeholder="验证码" required="required" id="find_authcode" name="authcode"/>
                               <i class="icon-code"></i>
                             </span>
                     </label>
                     <label class="block clearfix">
                             <span class="block input-icon input-icon-right">
-                              <input type="password" class="form-control" placeholder="新密码" name="password"/>
+                              <input type="password" class="form-control" placeholder="新密码" id="find_password" required="required" name="password"/>
                               <i class="icon-pause"></i>
                             </span>
                     </label>
                     <div class="clearfix">
-                        <button type="button" class="width-35 pull-right btn btn-sm btn-danger">
+                        <button id="find_reset_btn" type="submit" class="width-35 pull-right btn btn-sm btn-danger">
                             <i class="icon-lightbulb"></i>
                             重置密码
                         </button>
@@ -214,15 +220,15 @@
             </h4>
 
             <div class="space-6"></div>
-            <div class="alert alert-danger">手机号码格式不正确</div>
-            <div class="alert alert-success">短信发送成功</div>
-            <form method="post" target="{{ url('admin/login/doregister') }}">
+            <div class="alert alert-danger hide" id="reg_alert_danger"></div>
+            <div class="alert alert-success hide" id="reg_alert_success"></div>
+            <form method="post" id="register-form" action="{{ url('admin/login/doregister') }}">
                 <fieldset>
                     <label class="block clearfix">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="手机号" name="phone" required="required" />
+                            <input type="text" class="form-control"  id="reg_phone_num" placeholder="手机号" name="phone" required="required" />
                               <span class="input-group-btn">
-                                <button class="btn btn-default  btn-sm btn-success" type="button">发送短信</button>
+                                <button class="btn btn-default  btn-sm btn-success" id="reg_send_msg" type="button">发送短信</button>
                               </span>
                         </div><!-- /input-group -->
                     </label>
@@ -230,27 +236,27 @@
 
                     <label class="block clearfix">
                             <span class="block input-icon input-icon-right">
-                              <input type="text" class="form-control" placeholder="验证码" name="authcode" required/>
+                              <input type="text" class="form-control" placeholder="验证码" name="authcode" id="reg_authcode" required/>
                               <i class="icon-code"></i>
                             </span>
                     </label>
 
                     <label class="block clearfix">
                             <span class="block input-icon input-icon-right">
-                              <input type="password" class="form-control" placeholder="密码" name="password" required/>
+                              <input type="password" class="form-control" placeholder="密码" name="password" id="reg_password" required/>
                               <i class="icon-lock"></i>
                             </span>
                     </label>
 
                     <label class="block clearfix">
                             <span class="block input-icon input-icon-right">
-                              <input type="password" class="form-control" placeholder="请重复密码" name="password_again"/>
+                              <input type="password" class="form-control" placeholder="请重复密码" id="reg_repassword" name="password_again"/>
                               <i class="icon-retweet"></i>
                             </span>
                     </label>
 
                     <label class="block">
-                        <input type="checkbox" class="ace" required="required"/>
+                        <input type="checkbox" class="ace" id="reg_agree" required="required"/>
                             <span class="lbl">
                               接受
                               <a href="#">易行后台管理协议</a>
@@ -269,6 +275,7 @@
                             点击注册
                             <i class="icon-arrow-right icon-on-right"></i>
                         </button>
+                        <input type="hidden" name="smsid" value="" id="reg_smsid" />
                     </div>
                 </fieldset>
             </form>
@@ -331,6 +338,188 @@
     function show_box(id) {
         jQuery('.widget-box.visible').removeClass('visible');
         jQuery('#' + id).addClass('visible');
+    }
+    
+    function validatePhoneNum( num ){
+       var re= /^[1][3578]\d{9}$/;
+       if(!re.test(num))
+       {
+           
+            return false;
+       }
+       
+       return true;
+    };
+    
+    $("#reg_send_msg").click(function(){
+         var phone_num = $("#reg_phone_num").val();
+         if( validatePhoneNum(phone_num)==false ){
+            show_alert_box("reg_alert_danger","手机号码格式不正确");
+            return false;
+         }
+         $.ajax({
+            url:'{{ url("admin/login/doSendSMS") }}',
+            type:'POST',
+            data:{'phone':phone_num},
+            dataType:'json',
+            success:function(data){
+                if( data.status!=200 ){
+                    show_alert_box("reg_alert_danger",data.msg);
+                }else{          
+                    show_alert_box("reg_alert_success","短信发送成功，请查收");
+                    //$("#reg_smsid").val(data.data.smsid);
+                }
+            }
+        });
+        return false;
+    });
+    
+    function show_alert_box(id,msg){
+       $("#"+id).html(msg).removeClass("hide");
+       
+       setTimeout(function(){
+        $("#"+id).addClass('hide');
+       },2000);
+       
+       return true;
+    }
+    
+    $("#register-form").submit(function(){
+       return doRegister();
+    });
+ 
+    
+    function doRegister(){
+        var url = $("#register-form").attr("action");
+        var phone_num = $("#reg_phone_num").val();
+         if( validatePhoneNum(phone_num)==false ){
+            return false;
+        }
+        var authcode = $("#reg_authcode").val();
+        if( authcode=="" ){
+            show_alert_box("reg_alert_danger","验证码不能为空");
+            return false;
+        }
+        var password = $("#reg_password").val();
+        if( password=="" ){
+            show_alert_box("reg_alert_danger","密码不能为空");
+            return false;
+        }
+        
+        var repassword = $("#reg_repassword").val();
+        if( repassword!=password ){
+            show_alert_box("reg_alert_danger","两次密码不一致");
+            return false;
+        }
+        
+        $.ajax({
+            url:url,
+            type:'POST',
+            data:{'phone':phone_num,'authcode':authcode,'password':password},
+            dataType:'json',
+            success:function(data){
+                if( data.status!=200 ){
+                    show_alert_box("reg_alert_danger",data.msg);
+                }else{          
+                    show_alert_box("reg_alert_success","注册成功");
+                }
+            }
+        });
+        return false;
+    };
+    
+    
+    $("#find_send_msg").click(function(){
+         var phone_num = $("#find_phone").val();
+         if( validatePhoneNum(phone_num)==false ){
+            show_alert_box("find_alert_danger","手机号码格式不正确");
+            return false;
+         }
+         $.ajax({
+            url:'{{ url("admin/login/doSendSMS") }}',
+            type:'POST',
+            data:{'phone':phone_num},
+            dataType:'json',
+            success:function(data){
+                if( data.status!=200 ){
+                    show_alert_box("find_alert_danger",data.msg);
+                }else{          
+                    show_alert_box("find_alert_success","短信发送成功，请查收");
+                }
+            }
+        });
+        return false;
+    });
+    
+    $("#reset-form").submit(function(){
+        return doFind();
+    });
+    
+    function doFind(){
+        var url = $("#reset-form").attr("action");
+        var phone_num = $("#find_phone").val();
+         if( validatePhoneNum(phone_num)==false ){
+            return false;
+        }
+        var authcode = $("#find_authcode").val();
+        if( authcode=="" ){
+            show_alert_box("reg_alert_danger","验证码不能为空");
+            return false;
+        }
+        var password = $("#find_password").val();
+        if( password=="" ){
+            show_alert_box("reg_alert_danger","密码不能为空");
+            return false;
+        }
+        
+        $.ajax({
+            url:url,
+            type:'POST',
+            data:{'phone':phone_num,'authcode':authcode,'password':password},
+            dataType:'json',
+            success:function(data){
+                if( data.status!=200 ){
+                    show_alert_box("reg_alert_danger",data.msg);
+                }else{          
+                    show_alert_box("reg_alert_success","重置密码成功");
+                }
+            }
+        });
+        return false;
+    };
+    
+    $("#login-form").submit(function(){
+        return doLogin();
+    });
+    
+    function doLogin(){
+        var url = $("#login-form").attr("action");
+        var phone_num = $("#login-phone").val();
+         if( validatePhoneNum(phone_num)==false ){
+            show_alert_box("login_alert_danger","手机号码格式不正确");
+            return false;
+        }
+        var password = $("#login_password").val();
+        if( password=="" ){
+            show_alert_box("login_alert_danger","密码不能为空");
+            return false;
+        }
+        var rem = $("#login-remeber").is(":checked");
+        rem = rem?1:0;
+        $.ajax({
+            url:url,
+            type:'POST',
+            data:{'phone':phone_num,'password':password,'remeber':rem},
+            dataType:'json',
+            success:function(data){
+                if( data.status!=200 ){
+                    show_alert_box("login_alert_danger",data.msg);
+                }else{          
+                    show_alert_box("login_alert_success","登录成功");
+                }
+            }
+        });
+        return false;
     }
 </script>
 </body>
