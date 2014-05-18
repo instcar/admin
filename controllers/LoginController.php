@@ -30,8 +30,10 @@ class LoginController extends ControllerBase
             $service = new InstcarService('/server/user/login', $params);
             $ret = $service->call();
             if($ret['status'] == 200) {
-                $this->response->redirect('admin/user/dashboard');
-                return;
+//                 $this->response->redirect('admin/user/dashboard');
+//                 return;
+                $ret['status'] = 301;
+                $ret['url'] = '/admin/user/dashboard';
             }
             echo json_encode($ret);
             exit;

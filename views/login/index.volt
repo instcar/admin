@@ -512,10 +512,11 @@
             data:{'phone':phone_num,'password':password,'remeber':rem},
             dataType:'json',
             success:function(data){
-                if( data.status!=200 ){
-                    show_alert_box("login_alert_danger",data.msg);
-                }else{          
+                if( data.status==301 ){
                     show_alert_box("login_alert_success","登录成功");
+                    window.location.href = data.url;
+                }else{
+                    show_alert_box("login_alert_danger",data.msg);
                 }
             }
         });

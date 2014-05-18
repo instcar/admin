@@ -186,7 +186,7 @@
 
         <li>
             <a href="#">
-                <img src="assets/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar"/>
+                <img src="/assets/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar"/>
 		<span class="msg-body">
 		  <span class="msg-title">
 		    <span class="blue">Susan:</span>
@@ -203,7 +203,7 @@
 
         <li>
             <a href="#">
-                <img src="assets/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar"/>
+                <img src="/assets/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar"/>
 		<span class="msg-body">
 		  <span class="msg-title">
 		    <span class="blue">Bob:</span>

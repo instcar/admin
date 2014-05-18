@@ -39,19 +39,35 @@
 
 <ul class="nav nav-list">
 <li class="active">
-    <a href="index.html">
+    <a href="{{url("admin/user/dashboard")}}">
         <i class="icon-dashboard"></i>
         <span class="menu-text"> 控制台 </span>
     </a>
 </li>
 
 <li>
-    <a href="typography.html">
+    <a href="{{url("admin/user/list")}}">
         <i class="icon-text-width"></i>
-        <span class="menu-text"> 文字排版 </span>
+        <span class="menu-text"> 用户管理 </span>
     </a>
 </li>
 
+<li>
+    <a href="{{url("admin/point/list")}}">
+        <i class="icon-text-width"></i>
+        <span class="menu-text"> 聚点管理 </span>
+    </a>
+</li>
+
+<li>
+    <a href="{{url("admin/line/list")}}">
+        <i class="icon-text-width"></i>
+        <span class="menu-text"> 线路管理 </span>
+    </a>
+</li>
+
+
+<!--
 <li>
     <a href="#" class="dropdown-toggle">
         <i class="icon-desktop"></i>
@@ -334,6 +350,8 @@
         </li>
     </ul>
 </li>
+-->
+
 </ul>
 <!-- /.nav-list -->
 
