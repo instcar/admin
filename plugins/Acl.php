@@ -18,12 +18,6 @@ class Acl extends Plugin
 
     public function beforeDispatch(\Phalcon\Events\Event $event, \Phalcon\Mvc\Dispatcher $dispatcher)
     {
-        $dbUser = null;
-        $userId = 0;
-        if(!$userId) {
-        } else {
-            return true;
-        }
         return true;
     }
 }

@@ -9,8 +9,6 @@ use Instcar\Admin\Plugins\InstcarService as InstcarService;
 
 class LineController extends ControllerBase
 {
-
-
 	public function beforeExecuteRoute($dispatcher)
 	{
 		$option = array("edit","add","del");
