@@ -55,7 +55,7 @@ class Module
             $evtManager->attach("dispatch:beforeException", function ($event, $dispatcher, $exception) {
                 switch ($exception->getCode()) {
                     case \Phalcon\Mvc\Dispatcher::EXCEPTION_HANDLER_NOT_FOUND:
-                        case \Phalcon\Mvc\Dispatcher::EXCEPTION_ACTION_NOT_FOUND:
+                    case \Phalcon\Mvc\Dispatcher::EXCEPTION_ACTION_NOT_FOUND:
                         $dispatcher->forward(array(
                             'module'     => 'admin',
                             'controller' => 'error',

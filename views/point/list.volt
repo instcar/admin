@@ -45,7 +45,7 @@
                     url: '{{ url("admin/point/dolist") }}',
                     datatype: "json",
                     height: 350,
-                    colNames:[' ', 'ID','名称','经度', '纬度', '城市','地区'],
+                    colNames:[' ', 'ID','名称','纬度', '经度', '城市','地区'],
                     colModel:[
                         {name:'myac',index:'', width:80, fixed:true, sortable:false, resize:false,
                             formatter:'actions', 
@@ -57,7 +57,7 @@
                             }
                         },
                         {name:'id',index:'id', width:60, sorttype:"int", editable: false},
-                        {name:'name',index:'name',width:150, editable:true, sorttype:"date",unformat: pickDate},
+                        {name:'name',index:'name',width:150, editable:true},
                         {name:'lat',index:'lat', width:120,editable: true,editoptions:{size:"20",maxlength:"30"}},
                         {name:'lng',index:'lng', width:120, editable: true,editoptions:{size:"20",maxlength:"30"}},
                         {name:'city',index:'city', width:150, editable: true,edittype:"select",editoptions:{value:"北京:北京;上海:上海"}},
@@ -86,7 +86,7 @@
                         }, 0);
                     },
             
-                    editurl: "{{ url("admin/point/dosomething") }}",//nothing is saved
+                    editurl: "{{ url("admin/point/doSomething") }}",//nothing is saved
                     //caption: "聚点管理",
                     emptyrecords: "没有相关记录",  
             
