@@ -26,6 +26,15 @@ class UserController extends ControllerBase
     }
 
     /**
+     * @breadcrumb(first="用户", second="笔记")
+     */
+    public function noteAction()
+    {
+
+
+    }
+
+    /**
      * @breadcrumb(first="用户", second="列表")
      */
     public function listAction()

@@ -13,7 +13,7 @@
         </button>
 
         <button class="btn btn-info">
-            <i class="icon-pencil"></i>
+            <a href="{{ url("admin/user/note") }}"><i class="icon-pencil"></i></a>
         </button>
 
         <button class="btn btn-warning">
