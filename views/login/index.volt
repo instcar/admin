@@ -360,7 +360,7 @@
          $.ajax({
             url:'{{ url("admin/login/doSendSMS") }}',
             type:'POST',
-            data:{'phone':phone_num},
+            data:{'phone':phone_num, 'for':'visitor'},
             dataType:'json',
             success:function(data){
                 if( data.status!=200 ){
@@ -438,7 +438,7 @@
          $.ajax({
             url:'{{ url("admin/login/doSendSMS") }}',
             type:'POST',
-            data:{'phone':phone_num},
+            data:{'phone':phone_num, 'for':'member'},
             dataType:'json',
             success:function(data){
                 if( data.status!=200 ){

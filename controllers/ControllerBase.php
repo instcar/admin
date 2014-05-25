@@ -56,7 +56,7 @@ class ControllerBase extends \Phalcon\Mvc\Controller
     }
 
     protected function flashJson($status, $data = array(), $msg="")
-    {
+{
         $this->response->setContentType('application/json');
         $this->response->sendHeaders();
         if(empty($data)) {

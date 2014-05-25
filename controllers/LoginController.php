@@ -60,8 +60,10 @@ class LoginController extends ControllerBase
     	$service = new InstcarService('/server/user/register',$params);
     	$ret= $service->call();
     	if($ret['status'] == 200) {
-    		$this->response->redirect('admin/login/index');
-    		return;
+    		// $this->response->redirect('admin/login/index');
+    		// return;
+            $ret['status'] = 301;
+            $ret['url'] = '/admin/login/index';
     	} 
     	echo json_encode($ret);
     	exit;
@@ -75,9 +77,31 @@ class LoginController extends ControllerBase
     public function doSendSMSAction(){
     	$params = array();
     	$params['phone'] = $_POST['phone'];
-    	$service = new InstcarService('/server/user/getAuthCode',$params);
+        if(!isset($_POST['for'])) {
+            $this->flashJson(500, array(), "非法请求：必须指定for字段");
+        }
+        $for = strval($_POST['for']);
+        switch(true) {
+            case $for == 'visitor':
+                $service = new InstcarService('/server/user/checkuserphone', $params);
+                $ret = $service->call();
+                if($ret['status'] != 200) {
+                    echo json_encode($ret);
+                    exit;
+                }
+                break;
+            case $for == 'member':
+                $service = new InstcarService('/server/user/getbyphone', $params);
+                $ret = $service->call();
+                if($ret['status'] == 404) {
+                    echo json_encode($ret);
+                    exit;
+                }
+                break;
+
+        }
+    	$service = new InstcarService('/server/user/getAuthCode', $params);
     	$ret= $service->call();
-    	
     	echo json_encode($ret);
     	exit;
     }
