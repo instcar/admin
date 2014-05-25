@@ -28,6 +28,7 @@ class LineController extends ControllerBase
             echo json_encode($ret);
             exit;
         }
+
         $this->view->setVar('data', $ret['data']);
         $this->view->setVar('params', $params);
     }
