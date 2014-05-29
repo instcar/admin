@@ -44,7 +44,7 @@
                     //datatype: "local",
                     url: '{{ url("admin/line/dolist") }}',
                     datatype: "json",
-                    height: 350,
+                    height: 'auto',
                     colNames:[' ', 'ID','名称','描述', '价钱', '添加时间','修改时间'],
                     colModel:[
                         {name:'myac',index:'', width:80, fixed:true, sortable:false, resize:false,
@@ -211,7 +211,6 @@
                 )
             
                 function formatName(cellvalue, options, rowObject){
-                    console.log(rowObject.id);
                     return '<a href="{{ url("admin/linedetail/list?id='+rowObject.id+'") }}" >'+cellvalue+'</a>';
                 }
                 

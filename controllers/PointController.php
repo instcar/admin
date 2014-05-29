@@ -110,4 +110,20 @@ class PointController extends ControllerBase
     public function doSomethingAction(){
     	
     }
+    
+    
+    public function searchAction(){
+    	$params = array();
+    	 
+    	$params['wd'] = $this->request->getQuery("wd", "string");
+    	
+    	$service = new InstcarService('/server/point/list', $params);
+    	$ret = $service->call();
+    	
+    	array_push($ret['data']['list'],array('name'=>"起点",'id'=>0));
+    	array_push($ret['data']['list'],array('name'=>"结点",'id'=>0));
+    	
+    	echo json_encode($ret);
+    	exit;
+    }
 }

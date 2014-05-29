@@ -3,12 +3,14 @@ namespace Instcar\Admin\Controllers;
 use Instcar\Admin\Plugins\InstcarService as InstcarService;
 
 /**
- * Class LineController
+ * Class LineDetailController
  * @package Instcar\Admin\Controllers
  */
 
-class LineController extends ControllerBase
+class LineDetailController extends ControllerBase
 {
+
+
 	public function beforeExecuteRoute($dispatcher)
 	{
 		$option = array("edit","add","del");
@@ -25,11 +27,14 @@ class LineController extends ControllerBase
 	}
 	
 	/**
-	 * @breadcrumb(first="线路", second="列表")
+	 * @breadcrumb(first="线路", second="详情")
 	 */
 	public function listAction()
 	{
-		
+
+		$lineid = $this->request->getQuery ( 'id','int' );
+
+		$this->view->setVar('lineid', $lineid );
 	}
 	
 	public function dolistAction()
@@ -40,15 +45,25 @@ class LineController extends ControllerBase
 		$params['rows'] = $params['rows']?$params['rows']:10;
 		 
 		$params['page']  = max(1, $this->request->getQuery("page", "int"));
-		$params['wd'] = $this->request->getQuery("wd", "string");
-		 
-		$service = new InstcarService('/server/line/listLine', $params);
+		
+		$params['lineid'] = $this->request->getQuery("lineid", "string");
+		$params['all'] = 1;
+		
+		$service = new InstcarService('/server/line/listLineById', $params);
 		$ret = $service->call();
-		 
-		$totalpages = ceil($ret['data']['total']/$params['rows']);
-		 
+		
+		if( $ret['status'] != 200 ) {
+			echo json_encode($ret);
+			exit;
+		}
+		$tmp =$ret;
+		unset($ret);
+		
+		$ret['status'] = $tmp['status'];
+		$ret['msg'] = $tmp['msg'];
+		$ret['data']['list'] = $tmp['data']['list'];
 		$ret['data']['currpage'] = $params['page'];
-		$ret['data']['totalpages'] = $totalpages;
+		$ret['data']['totalpages'] = 1;
 	
 		echo json_encode($ret);
 		exit;
@@ -58,7 +73,7 @@ class LineController extends ControllerBase
 	{
 		$params = $_POST;
 	
-		$service = new InstcarService('/server/line/addLine', $params);
+		$service = new InstcarService('/server/line/addLinePoint', $params);
 	
 		$ret = $service->call();
 	
@@ -73,10 +88,15 @@ class LineController extends ControllerBase
 	public function doEditAction()
 	{
 		$params = $_POST;
-		$params['lineid'] = $params['id'];
-		$service = new InstcarService('/server/line/editLine', $params);		 
+		$params['lineid'] = $params['line_id'];
+		$params['pointid'] = $params['point_id'];
+		$params['pre_pointid'] = $params['pre_point_id'];
+		$params['post_pointid'] = $params['post_point_id'];
+		
+		$service = new InstcarService('/server/line/editLinePoint', $params);
+		 
 		$ret = $service->call();
-
+		 
 		if( $ret['status'] != 200 ) {
 			echo json_encode($ret);
 			exit;
@@ -88,9 +108,8 @@ class LineController extends ControllerBase
 	public function doDelAction()
 	{
 		$params = $_POST;
-		$params['lineid'] = $params['id'];
 	
-		$service = new InstcarService('/server/line/delLine', $params);
+		$service = new InstcarService('/server/line/delLinePoint', $params);
 		 
 		$ret = $service->call();
 	
@@ -105,6 +124,10 @@ class LineController extends ControllerBase
 	//定义增删改空方法
 	public function doSomethingAction()
 	{
-		
+		 
+	}
+	
+	public function pointAction()
+	{
 	}
 }

@@ -7,6 +7,8 @@
         <link rel="stylesheet" href="/assets/css/jquery-ui-1.10.3.full.min.css" />
         <link rel="stylesheet" href="/assets/css/datepicker.css" />
         <link rel="stylesheet" href="/assets/css/ui.jqgrid.css" />
+        <link rel="stylesheet" href="/assets/css/jquery-ui-1.10.3.full.min.css" />
+        
     {{ super() }}
 
 {% endblock %}
@@ -30,6 +32,9 @@
 <script src="/assets/js/jqGrid/jquery.jqGrid.min.js"></script>
 <script src="/assets/js/jqGrid/i18n/grid.locale-zh.js"></script>
 
+        <script src="/assets/js/jquery-ui-1.10.3.full.min.js"></script>
+        <script src="/assets/js/jquery.ui.touch-punch.min.js"></script>
+
 
     <!-- inline scripts related to this page -->
     <script type="text/javascript">            
@@ -42,10 +47,10 @@
                     
                     //data: grid_data,
                     //datatype: "local",
-                    url: '{{ url("admin/point/dolist") }}',
+                    url: '{{ url("admin/linedetail/dolist?lineid=")}}{{ lineid }}',
                     datatype: "json",
                     height: 'auto',
-                    colNames:[' ', 'ID','名称','纬度', '经度', '城市','地区'],
+                    colNames:[' ', 'ID','聚点名称','前驱聚点','后驱聚点', '价钱','离前驱距离（里）','','','',''],
                     colModel:[
                         {name:'myac',index:'', width:80, fixed:true, sortable:false, resize:false,
                             formatter:'actions', 
@@ -53,17 +58,22 @@
                                 keys:true,
                                 
                                 delOptions:{recreateForm: true, beforeShowForm:beforeDeleteCallback},
+                                addOptions:{recreateForm: true, beforeShowForm:beforeAddCallback}
                                 //editformbutton:true, editOptions:{recreateForm: true, beforeShowForm:beforeEditCallback}
                             }
                         },
                         {name:'id',index:'id', width:60, sorttype:"int", editable: false},
-                        {name:'name',index:'name',width:150, editable:true},
-                        {name:'lat',index:'lat', width:120,editable: true,editoptions:{size:"20",maxlength:"30"}},
-                        {name:'lng',index:'lng', width:120, editable: true,editoptions:{size:"20",maxlength:"30"}},
-                        {name:'city',index:'city', width:150, editable: true,edittype:"select",editoptions:{value:"北京:北京;上海:上海"}},
-                        {name:'district',index:'district', width:150, sortable:false,editable: true,editoptions:{size:"20",maxlength:"30"}} 
+                        {name:'point_id_detail.name', editable:true,unformat: pointFormat},
+                        {name:'pre_point_id_detail.name', editable:true,unformat: pointFormat},
+                        {name:'post_point_id_detail.name', editable:true,unformat: pointFormat},
+                        {name:'price', width:120, editable: true,editoptions:{size:"20",maxlength:"30"}},
+                        {name:'distance', width:120, editable: true,editoptions:{size:"20",maxlength:"30"}},
+                        {name:'line_id',hidden:true,hidedlg:true, editable: true},
+                        {name:'point_id',hidden:true,hidedlg:true, editable: true},
+                        {name:'pre_point_id',hidden:true,hidedlg:true, editable: true},
+                        {name:'post_point_id',hidden:true,hidedlg:true, editable: true},
                     ], 
-            
+                    	
                     viewrecords : true,
                     rowNum:10,
                     rowList:[10,20,30],
@@ -85,8 +95,7 @@
                             enableTooltips(table);
                         }, 0);
                     },
-            
-                    editurl: "{{ url("admin/point/doSomething") }}",//nothing is saved
+                    editurl: "{{ url("admin/linedetail/dosomething") }}",//nothing is saved
                     //caption: "聚点管理",
                     emptyrecords: "没有相关记录",  
             
@@ -107,7 +116,8 @@
                         },
             
                 });
-            
+             
+                  
                 //enable search/filter toolbar
                 //jQuery(grid_selector).jqGrid('filterToolbar',{defaultSearch:true,stringResult:true})
             
@@ -128,7 +138,7 @@
                     }, 0);
                 }
             
-            
+                
                 //navButtons
                 jQuery(grid_selector).jqGrid('navGrid',pager_selector,
                     {   //navbar options
@@ -210,7 +220,9 @@
                     }
                 )
             
-            
+                function formatName(cellvalue, options, rowObject){
+                    return '<a href="{{ url("admin/line/point") }}" >'+cellvalue+'</a>';
+                }
                 
                 function style_edit_form(form) {
                     //enable datepicker on "sdate" field and switches for "stock" field
@@ -262,9 +274,20 @@
                 }
                 
                 function beforeEditCallback(e) {
-                    var form = $(e[0]);
+                    /*var form = $(e[0]);
                     form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar').wrapInner('<div class="widget-header" />')
-                    style_edit_form(form);
+                    style_edit_form(form);*/
+                	/*.autocomplete({
+                        source: getPoint,
+                        select: function( event, ui ) { 
+                        	var id=  $(this).attr('id').replace("_detail.name","");
+                        	$("#"+id).val(ui.item.id);
+                        }
+                    });*/
+                }
+                
+                function beforeAddCallback(e){
+                	console.log(e);
                 }
             
             
@@ -328,6 +351,69 @@
                 }
             
                 //var selr = jQuery(grid_selector).jqGrid('getGridParam','selrow');
+            
+                 //autocomplete
+                 var availableTags = [
+                    "ActionScript",
+                    "AppleScript",
+                    "Asp",
+                    "BASIC",
+                    "C",
+                    "C++",
+                    "Clojure",
+                    "COBOL",
+                    "ColdFusion",
+                    "Erlang",
+                    "Fortran",
+                    "Groovy",
+                    "Haskell",
+                    "Java",
+                    "JavaScript",
+                    "Lisp",
+                    "Perl",
+                    "PHP",
+                    "Python",
+                    "朝阳",
+                    "上地",
+                    "中国"
+                ];
+                
+                function getPoint( request, response) {  
+                        $.ajax({  
+                            url: "{{url('admin/point/search')}}",  
+                              
+                            dataType: "json",  
+                            data: {               
+                                wd: request.term 
+                            },  
+                            success:function(json){
+                            	if( json.data.list ){
+	                                response( $.map( json.data.list, function( name ) {  
+	                                    return {  
+	                                        label: name.name,  
+	                                        value: name.name,
+	                                        id:name.id
+	                                    }  
+	                                })); 
+                            	}
+                            }             
+                                  
+                        });  
+                          
+                }
+                
+                function pointFormat(cellvalue, options, cell){
+                    setTimeout(function(){
+                        $(cell) .find('input[type=text]').autocomplete({
+                            source: getPoint,
+                            select: function( event, ui ) { 
+                            	var id=  $(this).attr('id').replace("_detail.name","");
+                            	$("#"+id).val(ui.item.id);
+                            }
+                        }); 
+                    }, 0);
+                }
+                
             
             
             });
