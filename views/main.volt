@@ -19,7 +19,7 @@
         <!-- page specific plugin styles -->
 
         <!-- fonts -->
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300"/>
+        <!-- <link rel="stylesheet" href="/assets/css/googlefont.css"/>-->
 
         <!-- ace styles -->
         <link rel="stylesheet" href="/assets/css/ace.min.css"/>
@@ -105,6 +105,7 @@
             </div>
 
             <div class="page-content">
+                {% block page_header %}
                 <div class="page-header">
                     <h1>
                         {% if breadcrumb_annotation %}
@@ -118,6 +119,7 @@
                         </small>
                     </h1>
                 </div>
+                {% endblock %}
                 <!-- /.page-header -->
 
                 <div class="row">
@@ -151,12 +153,12 @@
 
     <!--[if !IE]> -->
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="/assets/js/jquery-2.0.3.min.js"></script>
 
     <!-- <![endif]-->
 
     <!--[if IE]>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/assets/js/jquery-1.10.2.min.js"></script>
     <![endif]-->
 
     <!--[if !IE]> -->

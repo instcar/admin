@@ -38,6 +38,7 @@
 <!-- #sidebar-shortcuts -->
 
 <ul class="nav nav-list">
+
 <li class="active">
     <a href="{{url("admin/user/dashboard")}}">
         <i class="icon-dashboard"></i>
@@ -45,23 +46,40 @@
     </a>
 </li>
 
-<li>
-    <a href="{{url("admin/user/list")}}">
-        <i class="icon-text-width"></i>
+<li{% if breadcrumb['controller']=="user" %} class="active open"{% endif %}>
+    <a href="#" class="dropdown-toggle">
+        <i class="icon-user"></i>
         <span class="menu-text"> 用户管理 </span>
+
+        <b class="arrow icon-angle-down"></b>
     </a>
+
+    <ul class="submenu">
+        <li {% if breadcrumb['controller']=="user" and breadcrumb['action']== "list" %} class="active"{% endif %}>
+            <a href="{{ url("admin/user/list") }}">
+                <i class="icon-double-angle-right"></i>
+                用户列表
+            </a>
+        </li>
+        <li {% if breadcrumb['controller']=="user" and breadcrumb['action']== "realnamelist" %} class="active"{% endif %}>
+            <a href="{{ url("admin/user/realnamelist") }}">
+                <i class="icon-double-angle-right"></i>
+                实名认证
+            </a>
+        </li>
+    </ul>
 </li>
 
 <li>
     <a href="{{url("admin/point/list")}}">
-        <i class="icon-text-width"></i>
+        <i class="icon-circle"></i>
         <span class="menu-text"> 聚点管理 </span>
     </a>
 </li>
 
 <li>
     <a href="{{url("admin/line/list")}}">
-        <i class="icon-text-width"></i>
+        <i class="icon-map-marker"></i>
         <span class="menu-text"> 线路管理 </span>
     </a>
 </li>

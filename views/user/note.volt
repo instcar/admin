@@ -70,7 +70,7 @@
 
     <div class="clearfix row">
         <div class="col-sm-9">
-
+            <script id="editor" type="text/plain" style="height:400px;"></script>
             <div class="clearfix" style="margin-bottom: 5px;">
 
                 <div class="pull-right">
@@ -81,8 +81,6 @@
                 </div>
 
             </div>
-
-            <script id="editor" type="text/plain" style="height:400px;"></script>
         </div>
 
         <div class="col-sm-3">

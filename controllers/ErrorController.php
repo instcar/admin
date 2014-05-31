@@ -7,5 +7,11 @@ class ErrorController extends ControllerBase
     {
       $this->flashJson(404, array(), "404, Not Found!");
     }
+
+    public function show500Action($jsonMsg)
+    {
+        $msg = json_decode($jsonMsg, true);
+        $this->view->setVar("msg", $msg);
+    }
 }
 
