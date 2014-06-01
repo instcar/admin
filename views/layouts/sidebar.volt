@@ -51,6 +51,32 @@
     </ul>
 </li>
 
+
+<li{% if breadcrumb['controller']=="car" %} class="active open"{% endif %}>
+    <a href="#" class="dropdown-toggle">
+        <i class="icon-barcode"></i>
+        <span class="menu-text"> 汽车管理 </span>
+        <b class="arrow icon-angle-down"></b>
+    </a>
+
+    <ul class="submenu">
+        <li{% if breadcrumb['controller']=="car" and breadcrumb['action']== "list" %} class="active"{% endif %}>
+            <a href="{{ url("admin/car/list") }}">
+                <i class="icon-double-angle-right"></i>
+                汽车列表
+            </a>
+        </li>
+        <li{% if breadcrumb['controller']=="car" and breadcrumb['action']== "realreqlist" %} class="active"{% endif %}>
+            <a href="{{ url("admin/car/realreqlist") }}">
+                <i class="icon-double-angle-right"></i>
+                实名认证
+            </a>
+        </li>
+    </ul>
+</li>
+
+
+
 <li{% if breadcrumb['controller']=="point"%} class="active"{% endif %}>
     <a href="{{url("admin/point/list")}}">
         <i class="icon-circle"></i>

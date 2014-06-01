@@ -31,7 +31,6 @@ class UserController extends ControllerBase
     public function noteAction()
     {
 
-
     }
 
     public function realnameprocessAction()
@@ -39,6 +38,9 @@ class UserController extends ControllerBase
         $params = array();
         $params['user_id'] = $this->request->getPost("user_id", "int");
         $params['id_number'] = $this->request->getPost("id_number", "string");
+        if(empty($params['id_number'])) {
+            $this->flashJson(500, array(), "身份证号不能为空");
+        }
 
         $service = new InstcarService('/server/user/realnameprocess', $params);
         $ret = $service->call();

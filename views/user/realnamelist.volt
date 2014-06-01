@@ -69,12 +69,12 @@
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                <h4 class="modal-title" id="idNumberModalLabel">查看用户身份证详情</h4>
+                                                <h4 class="modal-title" id="idNumberModalLabel">查看用户身份证</h4>
                                             </div>
                                             <form method="post" action="{{ url('admin/user/realnameprocess') }}">
-                                            <div class="modal-body">
+                                            <div class="modal-body center">
                                                 {% for id_card in id_cards %}
-                                                    <a href="{{ id_card }}" target="_blank"><img src="{{ id_card }}" width="150px;"/></a>
+                                                    <a href="{{ url('admin/image/show/?src=') }}{{ urlencode(id_card) }}" target="_blank"><img src="{{ id_card }}" height="150px;"/></a>
                                                 {% endfor %}
                                                 <hr />
                                                 <input type="hidden" name="user_id" value="{{ user['user_id'] }}"/>
