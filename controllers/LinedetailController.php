@@ -7,7 +7,7 @@ use Instcar\Admin\Plugins\InstcarService as InstcarService;
  * @package Instcar\Admin\Controllers
  */
 
-class LineDetailController extends ControllerBase
+class LinedetailController extends ControllerBase
 {
 
 
