@@ -7,24 +7,6 @@
 </script>
 
 <div class="sidebar-shortcuts" id="sidebar-shortcuts">
-    <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-        <button class="btn btn-success">
-            <i class="icon-signal"></i>
-        </button>
-
-        <button class="btn btn-info">
-            <a href="{{ url("admin/user/note") }}"><i class="icon-pencil"></i></a>
-        </button>
-
-        <button class="btn btn-warning">
-            <a href="{{ url('admin/user/list') }}"><i class="icon-group"></i></a>
-        </button>
-
-        <button class="btn btn-danger">
-            <i class="icon-cogs"></i>
-        </button>
-    </div>
-
     <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
         <span class="btn btn-success"></span>
 
@@ -39,29 +21,28 @@
 
 <ul class="nav nav-list">
 
-<li class="active">
+<li{% if breadcrumb['controller']=="user" and breadcrumb['action']=='dashboard'%} class="active"{% endif %}>
     <a href="{{url("admin/user/dashboard")}}">
         <i class="icon-dashboard"></i>
         <span class="menu-text"> 控制台 </span>
     </a>
 </li>
 
-<li{% if breadcrumb['controller']=="user" %} class="active open"{% endif %}>
+<li{% if breadcrumb['controller']=="user" and breadcrumb['action'] != 'dashboard'%} class="active open"{% endif %}>
     <a href="#" class="dropdown-toggle">
         <i class="icon-user"></i>
         <span class="menu-text"> 用户管理 </span>
-
         <b class="arrow icon-angle-down"></b>
     </a>
 
     <ul class="submenu">
-        <li {% if breadcrumb['controller']=="user" and breadcrumb['action']== "list" %} class="active"{% endif %}>
+        <li{% if breadcrumb['controller']=="user" and breadcrumb['action']== "list" %} class="active"{% endif %}>
             <a href="{{ url("admin/user/list") }}">
                 <i class="icon-double-angle-right"></i>
                 用户列表
             </a>
         </li>
-        <li {% if breadcrumb['controller']=="user" and breadcrumb['action']== "realnamelist" %} class="active"{% endif %}>
+        <li{% if breadcrumb['controller']=="user" and breadcrumb['action']== "realnamelist" %} class="active"{% endif %}>
             <a href="{{ url("admin/user/realnamelist") }}">
                 <i class="icon-double-angle-right"></i>
                 实名认证
@@ -70,14 +51,14 @@
     </ul>
 </li>
 
-<li>
+<li{% if breadcrumb['controller']=="point"%} class="active"{% endif %}>
     <a href="{{url("admin/point/list")}}">
         <i class="icon-circle"></i>
         <span class="menu-text"> 聚点管理 </span>
     </a>
 </li>
 
-<li>
+<li{% if breadcrumb['controller']=="line"%} class="active"{% endif %}>
     <a href="{{url("admin/line/list")}}">
         <i class="icon-map-marker"></i>
         <span class="menu-text"> 线路管理 </span>

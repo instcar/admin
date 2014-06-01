@@ -71,7 +71,7 @@
     <div class="clearfix row">
         <div class="col-sm-9">
             <script id="editor" type="text/plain" style="height:400px;"></script>
-            <div class="clearfix" style="margin-bottom: 5px;">
+            <div class="clearfix" style="margin: 5px 0 0;">
 
                 <div class="pull-right">
                     <button class="btn">
@@ -84,13 +84,12 @@
         </div>
 
         <div class="col-sm-3">
-
-
             <div id="directionWrapper" class="widget-box">
                 <div class="directionTitle widget-header widget-header-flat">目&nbsp;录</div>
-                <div class="widget-body"
-                <div id="directionContainer" class="widget-main">
+                <div class="widget-body">
+                    <div id="directionContainer" class="widget-main">
 
+                    </div>
                 </div>
             </div>
         </div>
